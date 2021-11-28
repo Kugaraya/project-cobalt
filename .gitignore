@@ -8,6 +8,10 @@
 .buildlog/
 .history
 .svn/
+.firebase
+.vscode
+.firebaserc
+pubspec.lock
 
 # IntelliJ related
 *.iml
