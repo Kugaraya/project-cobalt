@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:project_cobalt/core/services/theme_service.dart';
+import 'package:project_cobalt/core/providers/theme_provider.dart';
 
 class ThemeController extends ChangeNotifier {
   bool _isDark = true;
-  ThemeService _themeService = ThemeService();
+  ThemeProvider _themeService = ThemeProvider();
   bool get isDark => _isDark;
 
 

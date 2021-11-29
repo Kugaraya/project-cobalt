@@ -1,4 +1,4 @@
-import 'package:project_cobalt/core/controllers/MenuController.dart';
+import 'package:project_cobalt/core/controllers/menu_controller.dart';
 import 'package:project_cobalt/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';

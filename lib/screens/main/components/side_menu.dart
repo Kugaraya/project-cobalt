@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:project_cobalt/core/controllers/ThemeController.dart';
+import 'package:project_cobalt/core/controllers/screen_controller.dart';
+import 'package:project_cobalt/core/controllers/theme_controller.dart';
+import 'package:project_cobalt/screens/dashboard/dashboard_screen.dart';
 import 'package:provider/provider.dart';
 
 class SideMenu extends StatefulWidget {
@@ -15,56 +17,60 @@ class SideMenu extends StatefulWidget {
 class _SideMenuState extends State<SideMenu> {
   @override
   Widget build(BuildContext context) {
-    return Consumer(builder: (context, ThemeController themeController, child) {
+    return Consumer<ThemeController>(
+        builder: (context, ThemeController themeController, child) {
       return Drawer(
-        child: ListView(
-          children: [
-            DrawerHeader(
-              child: Container(),
-            ),
-            DrawerListTile(
-              isDark: themeController.isDark,
-              title: "Dashboard",
-              svgSrc: "assets/icons/menu_dashboard.svg",
-              press: () {},
-            ),
-            DrawerListTile(
-              isDark: themeController.isDark,
-              title: "Library",
-              svgSrc: "assets/icons/menu_library.svg",
-              press: () {},
-            ),
-            DrawerListTile(
-              isDark: themeController.isDark,
-              title: "Works",
-              svgSrc: "assets/icons/menu_pen.svg",
-              press: () {},
-            ),
-            DrawerListTile(
-              isDark: themeController.isDark,
-              title: "Favorites",
-              svgSrc: "assets/icons/menu_favorite.svg",
-              press: () {},
-            ),
-            DrawerListTile(
-              isDark: themeController.isDark,
-              title: "Settings",
-              svgSrc: "assets/icons/menu_setting.svg",
-              widget: IconButton(
-                icon: Icon(themeController.isDark
-                    ? Icons.dark_mode
-                    : Icons.light_mode),
-                hoverColor: Colors.transparent,
-                onPressed: () {
-                  themeController.isDark
-                      ? themeController.isDark = false
-                      : themeController.isDark = true;
-                },
+        child: Consumer<ScreenController>(
+            builder: (context, ScreenController screenController, child) {
+          return ListView(
+            children: [
+              DrawerHeader(
+                child: Container(),
               ),
-              press: () {},
-            ),
-          ],
-        ),
+              DrawerListTile(
+                isDark: themeController.isDark,
+                title: "Dashboard",
+                svgSrc: "assets/icons/menu_dashboard.svg",
+                press: () => screenController.activeScreen = DashboardScreen(),
+              ),
+              DrawerListTile(
+                isDark: themeController.isDark,
+                title: "Library",
+                svgSrc: "assets/icons/menu_library.svg",
+                press: () {},
+              ),
+              DrawerListTile(
+                isDark: themeController.isDark,
+                title: "Works",
+                svgSrc: "assets/icons/menu_pen.svg",
+                press: () {},
+              ),
+              DrawerListTile(
+                isDark: themeController.isDark,
+                title: "Favorites",
+                svgSrc: "assets/icons/menu_favorite.svg",
+                press: () {},
+              ),
+              DrawerListTile(
+                isDark: themeController.isDark,
+                title: "Settings",
+                svgSrc: "assets/icons/menu_setting.svg",
+                widget: IconButton(
+                  icon: Icon(themeController.isDark
+                      ? Icons.dark_mode
+                      : Icons.light_mode),
+                  hoverColor: Colors.transparent,
+                  onPressed: () {
+                    themeController.isDark
+                        ? themeController.isDark = false
+                        : themeController.isDark = true;
+                  },
+                ),
+                press: () {},
+              ),
+            ],
+          );
+        }),
       );
     });
   }
@@ -96,7 +102,8 @@ class DrawerListTile extends StatelessWidget {
       ),
       title: Text(
         title,
-        style: TextStyle(color: !isDark ? Colors.blueGrey[900] : Colors.white54),
+        style:
+            TextStyle(color: !isDark ? Colors.blueGrey[900] : Colors.white54),
       ),
       trailing: widget,
     );

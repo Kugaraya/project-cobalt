@@ -1,4 +1,6 @@
-import 'package:project_cobalt/core/controllers/MenuController.dart';
+import 'package:project_cobalt/core/controllers/menu_controller.dart';
+import 'package:project_cobalt/core/controllers/screen_controller.dart';
+import 'package:project_cobalt/core/controllers/theme_controller.dart';
 import 'package:provider/single_child_widget.dart';
 
 import '../core/locator.dart';
@@ -20,9 +22,14 @@ class ProviderInjector {
     ChangeNotifierProvider<MenuController>(
       create: (_) => MenuController(),
     ),
+    ChangeNotifierProvider<ThemeController>(
+      create: (_) => ThemeController(),
+    ),
+    ChangeNotifierProvider<ScreenController>(
+      create: (_) => ScreenController(),
+    ),
   ];
   
   static List<SingleChildWidget> _consumableServices = [
-    
   ];
 }
