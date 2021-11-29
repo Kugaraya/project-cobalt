@@ -12,9 +12,4 @@ class LocatorInjector {
     locator.registerLazySingleton(() => NavigatorService());
     locator.registerLazySingleton(() => CacheService());
   }
-
-  static void initValues() {
-    locator<NavigatorService>().createRoutes();
-    locator<CacheService>().initValues();
-  }
 }

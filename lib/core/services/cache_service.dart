@@ -8,7 +8,7 @@ class CacheService extends BaseService {
     sharedValues = await SharedPreferences.getInstance();
   }
 
-  void setValue({required String keyName, dynamic keyValue}) async {
+  setValue(String keyName, dynamic keyValue) async {
     switch (keyValue.runtimeType) {
       case int:
         await sharedValues.setInt(keyName, keyValue);
@@ -36,7 +36,7 @@ class CacheService extends BaseService {
     }
   }
 
-  Future<bool> removeKey({required String keyName}) async {
+  Future<bool> removeKey(String keyName) async {
     return await sharedValues.remove(keyName);
   }
 
@@ -44,23 +44,23 @@ class CacheService extends BaseService {
     return sharedValues.getKeys();
   }
 
-  List<String>? getStringList({required String keyName}) {
+  List<String>? getStringList(String keyName) {
     return sharedValues.getStringList(keyName);
   }
 
-  String? getString({required String keyName}) {
+  String? getString(String keyName) {
     return sharedValues.getString(keyName);
   }
 
-  int? getInt({required String keyName}) {
+  int? getInt(String keyName) {
     return sharedValues.getInt(keyName);
   }
 
-  double? getDouble({required String keyName}) {
+  double? getDouble(String keyName) {
     return sharedValues.getDouble(keyName);
   }
 
-  bool? getBool({required String keyName}) {
+  bool? getBool(String keyName) {
     return sharedValues.getBool(keyName);
   }
 }

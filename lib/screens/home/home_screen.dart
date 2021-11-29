@@ -1,6 +1,6 @@
 import 'package:project_cobalt/responsive.dart';
 import 'package:flutter/material.dart';
-import 'package:project_cobalt/screens/home/components/header.dart';
+import 'package:project_cobalt/screens/main/components/header.dart';
 import 'package:project_cobalt/screens/home/components/my_works.dart';
 import 'package:project_cobalt/screens/home/components/recent_files.dart';
 
