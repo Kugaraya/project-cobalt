@@ -5,9 +5,16 @@ import 'package:get_it/get_it.dart';
 
 GetIt locator = GetIt.instance;
 
+GetIt get getLocator => locator;
+
 class LocatorInjector {
   static Future<void> setupLocator() async {
     locator.registerLazySingleton(() => NavigatorService());
     locator.registerLazySingleton(() => CacheService());
+  }
+
+  static void initValues() {
+    locator<NavigatorService>().createRoutes();
+    locator<CacheService>().initValues();
   }
 }
