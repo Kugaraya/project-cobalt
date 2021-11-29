@@ -1,9 +1,9 @@
 import 'package:project_cobalt/responsive.dart';
 import 'package:project_cobalt/screens/dashboard/components/my_fields.dart';
 import 'package:flutter/material.dart';
+import 'package:project_cobalt/screens/main/components/header.dart';
 
 import '../../constants.dart';
-import 'components/header.dart';
 
 import 'components/recent_files.dart';
 import 'components/storage_details.dart';

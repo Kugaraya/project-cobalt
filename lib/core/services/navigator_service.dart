@@ -1,5 +1,6 @@
 import 'package:project_cobalt/core/base/base_service.dart';
-import 'package:project_cobalt/screens/main/main_screen.dart';
+import 'package:project_cobalt/screens/main/dashboard_display.dart';
+import 'package:project_cobalt/screens/main/library_display.dart';
 import 'package:seafarer/seafarer.dart';
 
 import 'package:flutter/material.dart';
@@ -13,9 +14,15 @@ class NavigatorService extends BaseService {
     seafarer.addRoutes([
       // Just for good measure, we won't explicitly navigate to the InitialPage.
       SeafarerRoute(
-        name: "/",
+        name: "/dashboard",
         builder: (context, args, params) {
-          return MainScreen();
+          return DashboardDisplay();
+        },
+      ),
+      SeafarerRoute(
+        name: "/library",
+        builder: (context, args, params) {
+          return LibraryDisplay();
         },
       ),
     ]);
